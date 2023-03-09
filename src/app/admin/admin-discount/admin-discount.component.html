@@ -1,0 +1,51 @@
+<div class="wrapper">
+    <button class="add" (click)="addDiscountItem()">ДОДАТИ АКЦІЮ</button>
+
+    <div class="form" *ngIf="editStatus">
+
+        <form [formGroup]="discountForm" (ngSubmit)="addDiscount()">
+            <div class="name">
+                <input type="text" placeholder="*Назва" formControlName="name" name="name" id="name">
+                <input type="text" placeholder="*Заголовок" formControlName="title" name="title" id="title">
+            </div>
+            <textarea text placeholder="*Опис" formControlName="description" name="description" id="description"></textarea>
+            <div class="file">
+                <input type="file" name="formFile" class="fileInput" id="formFile" (change)="upload($event)">
+            </div>
+
+            <ng-container *ngIf="isUploaded">
+                <img [src]="valueByControl('imagePath')" alt="" class="loadedImg">
+                <button type="button" class="deleteImage" (click)="deleteImage()">delete</button>
+            </ng-container>
+
+            <button class="save" [disabled]="discountForm.invalid" type="submit">ЗБЕРЕГТИ</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <td>Дата</td>
+            <td>Назва</td>
+            <td>Заголовок</td>
+            <td>Опис</td>
+            <td>Картинка</td>
+            <td>Дії</td>
+        </thead>
+        <tbody>
+            <tr *ngFor="let discount of adminDiscounts; index as i">
+                <td>{{ i + 1 }}</td>
+                <td>{{ discount.name }}</td>
+                <td>{{ discount.title }}</td>
+                <td>
+                    {{ discount.description | slice:0:100}}
+                    <span *ngIf="discount.description.length > 60">...</span>
+                </td>
+                <td><img [src]="discount.imagePath" alt="" ></td>
+                <td>
+                    <p (click)="editDiscount(discount)">Редагувати</p>
+                    <p (click)="deleteDiscount(discount)">Видалити</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

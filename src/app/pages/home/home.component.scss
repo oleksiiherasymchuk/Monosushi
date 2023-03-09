@@ -1,0 +1,105 @@
+.wrapper{
+    width: 100%;
+    height: auto;
+
+
+    .contain{
+        width: 100%;
+        height: 500px;
+        background-color: black;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        // margin-bottom: 15px;
+
+        .left{
+            width: 45%;
+
+            .title{
+                font-size: 44px;
+                color: white;
+
+                span{
+                    color: #b5d8f7;
+                }
+            }
+
+            .description{
+                font-size: 18px;
+                line-height: 2em;
+                font-style: italic;
+                // color: #252525;
+                // color: #5a5a5a;
+                color: rgb(195, 201, 208);
+            }
+
+            button{
+                margin-top: 15px;
+                width: 200px;
+                height: 40px;
+                border-radius: 7px;
+                background-color: #b5d8f7;
+                color: black;
+                border: none;
+            }
+
+            button:hover{
+                background-color: white;
+            }
+        }
+
+        .right{
+            width: 40%;
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .info{
+        width: 100%;
+        height: 230px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        background-color: #b5d8f7;
+        padding-left: 15px;
+        padding-right: 15px;
+
+        .items{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 480px;
+            height: 100px;
+            text-align: center;
+            font-size: 14px;
+            color: #252525;
+            
+            .zones{
+                margin-left: 15px;
+                margin-top: 5px;
+                width: 200px;
+                height: 70px;
+                border-radius: 7px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+            }
+
+            p{
+                width: 200px;
+            }
+
+            img{
+                width: 135px;
+                height: 90px;
+            }
+        }
+    }
+}

@@ -1,0 +1,487 @@
+header {
+
+    .container-fluid {
+        padding: 0;
+    }
+
+    .navbar-collapse {
+        margin-left: 15px;
+        width: 395px;
+        height: 70px;
+    }
+
+    #navbarSupportedContent {
+        align-self: center;
+        text-align: center;
+    }
+
+    .nav-item {
+        width: 75px;
+        height: 70px;
+        margin-left: 5px;
+        // border: 1px solid black;
+
+
+        img {
+            width: 28px;
+            height: 30px;
+        }
+
+        span {
+            font-size: 13px;
+            margin-top: 4px;
+            line-height: 1em;
+            font-weight: bold;
+            color: #252525;
+        }
+    }
+
+    .dropdown {
+        align-self: center;
+        text-align: center;
+        height: 52px;
+        width: 54px;
+        margin-left: 15px;
+
+        img {
+            background-color: #fff;
+            width: 40px;
+            height: 30px;
+        }
+    }
+
+    .dropdown-menu {
+        border: 2px solid #b5d8f7;
+        width: 200px;
+
+        .dropdown-item {
+            background-color: #fff;
+        }
+
+        li:hover {
+            border: 1px solid #b5d8f7;
+            border-radius: 7px;
+        }
+    }
+
+    .nav-item:hover {
+        border-radius: 7px;
+        border: 2px solid #b5d8f7;
+    }
+
+    height: 95px;
+    width: 100%;
+    // height: 110px;
+    background-color: #fff;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+
+    .headerIcon {
+        padding: 15px 15px;
+        width: 166px;
+        background-color: #b5d8f7;
+        height: 95px;
+    }
+
+    .headerLogo {
+        width: 136px;
+        height: 66px;
+    }
+
+    .phone {
+
+        width: 166px;
+        height: 35px;
+        border-radius: 7px;
+        border: 2px solid #b5d8f7;
+        background-color: #b5d8f7;
+        margin-left: 150px;
+
+        // padding-left: 5px;
+        // padding-top: 3px;
+
+        span {
+            font-size: 13px;
+            margin-top: 4px;
+            line-height: 1em;
+            font-weight: bold;
+            color: #252525;
+            margin-left: 8px;
+        }
+
+        button {
+            border: none;
+            background-color: #b5d8f7;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            border-radius: 7px;
+        }
+    }
+
+    .phone:hover {
+        border: 2px solid #b5d8f7;
+        background-color: #fff;
+
+        button {
+            border: none;
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            border-radius: 7px;
+        }
+    }
+
+    .info {
+        height: 40px;
+        width: 200px;
+        text-align: center;
+        margin-left: 50px;
+
+        a {
+            font-size: 13px;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .infoDetails {
+            font-size: 11px;
+        }
+    }
+
+    .user {
+        width: 50px;
+        height: 50px;
+        align-self: center;
+        text-align: center;
+        padding: 10px;
+        margin-left: 50px;
+
+        img {
+            width: 25px;
+            height: 25px;
+            align-self: center;
+            text-align: center;
+        }
+    }
+
+    .user:hover {
+        border-radius: 7px;
+        border: 2px solid #b5d8f7;
+    }
+
+    .basket {
+        height: 95px;
+        width: 135px;
+        align-self: center;
+        text-align: center;
+        padding-top: 25px;
+        background-color: #b5d8f7;
+        margin-left: 63px;
+
+        span {
+            margin-left: 5px;
+        }
+    }
+}
+
+.phoneModal {
+    width: 700px;
+    height: 400px;
+    border-radius: 7px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    visibility: hidden;
+
+    h3 {
+        width: 90%;
+        color: gray;
+        font-size: 22px;
+        font-style: oblique;
+    }
+
+    .closePhoneModal {
+        align-self: flex-end;
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 80%;
+        height: 300px;
+
+        input {
+            height: 50px;
+            width: 100%;
+            border: 1px solid gainsboro;
+            border-radius: 7px;
+            padding-left: 15px;
+        }
+
+        button {
+            width: 100%;
+            height: 50px;
+            background-color: #b5d8f7;
+            border: none;
+            border-radius: 7px;
+        }
+
+        button:hover {
+            background-color: #fff;
+            border: 2px solid #b5d8f7;
+
+        }
+    }
+}
+
+.entrance {
+    width: 700px;
+    height: 400px;
+    border-radius: 7px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    visibility: hidden;
+
+
+    .closeEntranceModal {
+        align-self: flex-end;
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 80%;
+        height: 300px;
+
+        input {
+            height: 50px;
+            width: 100%;
+            border: 1px solid gainsboro;
+            border-radius: 7px;
+            padding-left: 15px;
+        }
+
+        button {
+            width: 100%;
+            height: 50px;
+            background-color: #b5d8f7;
+            border: none;
+            border-radius: 7px;
+        }
+
+        button:hover {
+            background-color: #fff;
+            border: 2px solid #b5d8f7;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            color: #b5d8f7;
+        }
+
+        p {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+    }
+}
+
+.forgetModal {
+    width: 700px;
+    height: 400px;
+    border-radius: 7px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    visibility: hidden;
+
+    h3 {
+        width: 90%;
+        color: gray;
+        font-size: 22px;
+        font-style: oblique;
+    }
+
+    .closeForgetModal {
+        align-self: flex-end;
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 80%;
+        height: 300px;
+
+        input {
+            height: 50px;
+            width: 100%;
+            border: 1px solid gainsboro;
+            border-radius: 7px;
+            padding-left: 15px;
+        }
+
+        button {
+            width: 100%;
+            height: 50px;
+            background-color: #b5d8f7;
+            border: none;
+            border-radius: 7px;
+        }
+
+        button:hover {
+            background-color: #fff;
+            border: 2px solid #b5d8f7;
+
+        }
+
+
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.signInModal {
+    width: 700px;
+    height: 500px;
+    border-radius: 7px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    visibility: hidden;
+    
+
+    .closesignInModal {
+        align-self: flex-end;
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 80%;
+        height: 400px;
+
+        .name,
+        .surname,
+        .password,
+        .repeatPassword{
+            height: 50px;
+            width: 49%;
+            border: 1px solid gainsboro;
+            border-radius: 7px;
+            padding-left: 15px;
+            margin-bottom: 5px;
+        }
+
+        .halfInput{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-left: 5px;
+        }
+        .phone,
+        .email {
+            height: 50px;
+            width: 100%;
+            border: 1px solid gainsboro;
+            border-radius: 7px;
+            padding-left: 15px;
+            margin-bottom: 5px;
+        }
+
+        .checkbox{
+            margin-right: 5px;
+        }
+
+        button {
+            width: 100%;
+            height: 50px;
+            background-color: #b5d8f7;
+            border: none;
+            border-radius: 7px;
+        }
+
+        button:hover {
+            background-color: #fff;
+            border: 2px solid #b5d8f7;
+
+        }
+
+
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}

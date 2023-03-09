@@ -1,0 +1,146 @@
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" class="headerIcon" [routerLink]="[ '/' ]">
+        <img src="../../../assets/images/headerLogo.svg" class="headerLogo" alt="">
+      </a>
+
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 ml-3 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="[ '/discount' ]" routerLinkActive="route-active">
+              <img src="../../../assets/images/discount.svg" alt="">
+              <span>Акції</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="[ '/product/rolls' ]" routerLinkActive="route-active">
+              <img src="../../../assets/images/rolls.svg" alt="">
+              <span>Роли</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="[ '/product/sets' ]" routerLinkActive="route-active">
+              <img src="../../../assets/images/sets.svg" alt="">
+              <span>Сети</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="[ '/product/drinks' ]" routerLinkActive="route-active">
+              <img src="../../../assets/images/drinks.svg" alt="">
+              <span>Напої</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="[ '/product/souces' ]" routerLinkActive="route-active">
+              <img src="../../../assets/images/souces.svg" alt="">
+              <span>Соуси</span>
+            </a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../../assets/images/dropdown.webp" alt="">
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="[ '/delivery' ]" routerLinkActive="route-active">Доставка та оплата</a></li>
+              <li><a class="dropdown-item" [routerLink]="[ '/about' ]" routerLinkActive="route-active">Про нас</a></li>
+              <li><a class="dropdown-item" [routerLink]="[ '/discount' ]" routerLinkActive="route-active">Акції</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="phone">
+        <button>
+          <img src="../../../assets/images/phone.svg" alt="">
+          <span>Ми зателефонуємо</span>
+        </button>
+      </div>
+
+      <div class="info">
+        <a href="tel:+380938475152">(093)-847-51-52</a>
+        <div class="infoDetails">
+          Працюємо з <b>10:00</b> до <b>22:00</b>
+        </div>
+      </div>
+
+
+      <div class="user" [routerLink]="[ '/admin' ]" routerLinkActive="route-active">
+        <img src="../../../assets/images/user.svg" alt="">
+      </div>
+
+
+      <div class="basket">
+        <img src="../../../assets/images/basket.svg" alt="">
+        <span>0 грн</span>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="phoneModal">
+  <div class="closePhoneModal">x</div>
+  <h1>Ми зателефонуємо</h1>
+  <h3>Залиште номер телефону і наші менеджери звяжуться з вами</h3>
+  <form action="" class="form">
+    <input class="name" type="text" placeholder="Ваше ім'я">
+    <input class="number" type="number" placeholder="Ваш номер телефону">
+    <button class="send">НАДІСЛАТИ</button>
+  </form>
+</div>
+
+<div class="entrance">
+  <div class="closeEntranceModal">x</div>
+  <h1>Вхід в кабінет</h1>
+  <form action="">
+    <input type="email" placeholder="*Ваш email">
+    <input type="password" placeholder="*Пароль">
+    <button>УВІЙТИ В КАБІНЕТ</button>
+    <p>
+      <a href=""><span class="forgot">Забули пароль?</span></a>
+      <a href=""><span class="signIn">Зареєструватися</span></a>
+    </p>
+  </form>
+</div>
+
+<div class="forgetModal">
+  <div class="closeForgetModal">x</div>
+  <h1>Відновити пароль</h1>
+  <h3>Після заповнення інструкції, ми надішлемо вам детальну інструкцію по відновленню паролю</h3>
+  <form action="">
+    <input type="email" placeholder="*Ваш email">
+    <button>ВІДНОВИТИ ПАРОЛЬ</button>
+  </form>
+  <p>Повернутися до <a href=""><b>Входу</b></a></p>
+</div>
+
+<div class="signInModal">
+  <div class="closesignInModal">x</div>
+  <h1>Зареєструватися</h1>
+  <form action="">
+    <div class="halfInput">
+      <input type="text" class="name" placeholder="Ваше ім'я">
+      <input type="text" class="surname" placeholder="Ваше прізвище">
+    </div>
+    <input type="text" class="phone" placeholder="Ваш телефон">
+    <input type="email" class="email" placeholder="Ваш email">
+    <div class="halfInput">
+      <input type="password" class="password" placeholder="Пароль">
+      <input type="password" class="repeatPassword" placeholder="Повторіть пароль">
+    </div>
+
+    <label for="checkbox">
+      <input type="checkbox" class="checkbox">
+      <span>Я погоджуюсь з <b>Правилами користування</b></span>
+    </label>
+    <button>ЗАРЕЄСТРУВАТИСЯ</button>
+    <p>Вже зареєстровані?<b>Увійти</b></p>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+{
+  "discounts": [
+    {
+      "name": "discount 1",
+      "description": "description1",
+      "title": "discount one",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fadvantages-img-1.svg?alt=media&token=fd53ce21-91bd-42ae-b0f9-3fcf2e058735",
+      "id": 1
+    }
+  ],
+  "categories": [
+    {
+      "name": "cola",
+      "path": "drinks",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fdrinks.svg?alt=media&token=a66dfbc8-8b05-478d-a6f5-91997c3753b9",
+      "id": 1
+    }
+  ]
+}
