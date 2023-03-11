@@ -1,1 +1,69 @@
-<p>admin-product works!</p>
+
+<div class="wrapper">
+    <button class="add" (click)="addProductItem()">ДОДАТИ ТОВАР</button>
+
+    <div class="form" *ngIf="isOpen">
+        <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+            <div class="product">
+                <input type="text" value="Роли" formControlName="product" name="product" id="product">
+            </div>
+            <div class="name">
+                <input type="text" placeholder="*Назва" formControlName="name" name="name" id="name">
+                <input type="text" placeholder="*Шлях" formControlName="path" name="path" id="path">
+            </div>
+            <div class="ingredients">
+                <input type="text" placeholder="*Інгредієнти" formControlName="ingredients" name="ingredients" id="ingredients">
+            </div>
+            <div class="name">
+                <input type="text" placeholder="*Вага" formControlName="weight" name="weight" id="weight">
+                <input type="text" placeholder="*Ціна" formControlName="price" name="price" id="price">
+            </div>
+
+            <div class="file">
+                <input type="file" name="formFile" class="fileInput"  id="formFile" (change)="upload($event)">
+            </div>
+
+            <ng-container *ngIf="isUploaded">
+                <img [src]="valueByControl('imagePath')" alt="" class="loadedImg">
+                <button type="button" class="deleteImage" (click)="deleteImage()">delete</button>
+            </ng-container>
+
+            <button class="save" [disabled] ="productForm.invalid" type="submit">
+                ЗБЕРЕГТИ
+            </button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <td>№</td>
+            <td>Категорія</td>
+            <td>Назва</td>
+            <td>Інгредієнти</td>
+            <td>Вага</td>
+            <td>Ціна</td>
+            <td>Картинка</td>
+            <td>Дії</td>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of adminProducts; index as i ">
+                <td>{{ i + 1 }}</td>
+                <td> роли
+                    <!-- {{ product.category.name }} -->
+                </td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.ingredients | slice:0:30 }}
+                    <span *ngIf="product.ingredients.length > 30">...</span>
+                </td>
+                <td>{{ product.weight }} г.</td>
+                <td>{{ product.price }} грн.</td>
+                <td><img [src]="product.imagePath" alt=""></td>
+                <td>
+                    <p (click)="editProduct(product)">Редагувати</p>
+                    <p (click)="deleteProduct(product)">Видалити</p>
+                    <!-- [disabled]="editStatus" (click)="deleteCategory(category)" for delete button -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

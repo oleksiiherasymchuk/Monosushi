@@ -2,3 +2,15 @@
     <h1>Акції</h1>
 </div>
 
+<div class="discounts">
+    <div class="discount" *ngFor="let discount of discountArray">
+        <div class="img">
+            <img [src]="discount.imagePath" alt="">
+        </div>
+        <h5>{{ discount.name }}</h5>
+        <hr>
+        <button>ДІЗНАТИСЯ БІЛЬШЕ</button>
+    </div>
+</div>
+
+

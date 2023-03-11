@@ -1,9 +1,9 @@
-.wrapper{
+.wrapper {
     width: 100%;
     height: auto;
 
 
-    .contain{
+    .contain {
         width: 100%;
         height: 500px;
         background-color: black;
@@ -12,19 +12,19 @@
         align-items: center;
         // margin-bottom: 15px;
 
-        .left{
+        .left {
             width: 45%;
 
-            .title{
+            .title {
                 font-size: 44px;
                 color: white;
 
-                span{
+                span {
                     color: #b5d8f7;
                 }
             }
 
-            .description{
+            .description {
                 font-size: 18px;
                 line-height: 2em;
                 font-style: italic;
@@ -33,7 +33,7 @@
                 color: rgb(195, 201, 208);
             }
 
-            button{
+            button {
                 margin-top: 15px;
                 width: 200px;
                 height: 40px;
@@ -43,22 +43,22 @@
                 border: none;
             }
 
-            button:hover{
+            button:hover {
                 background-color: white;
             }
         }
 
-        .right{
+        .right {
             width: 40%;
 
-            img{
+            img {
                 width: 100%;
                 height: 100%;
             }
         }
     }
 
-    .info{
+    .info {
         width: 100%;
         height: 230px;
         margin: 0 auto;
@@ -70,7 +70,7 @@
         padding-left: 15px;
         padding-right: 15px;
 
-        .items{
+        .items {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -79,8 +79,8 @@
             text-align: center;
             font-size: 14px;
             color: #252525;
-            
-            .zones{
+
+            .zones {
                 margin-left: 15px;
                 margin-top: 5px;
                 width: 200px;
@@ -92,14 +92,15 @@
                 background-color: white;
             }
 
-            p{
+            p {
                 width: 200px;
             }
 
-            img{
+            img {
                 width: 135px;
                 height: 90px;
             }
         }
     }
 }
+

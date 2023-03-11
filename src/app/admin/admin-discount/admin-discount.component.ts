@@ -38,7 +38,7 @@ export class AdminDiscountComponent implements OnInit {
       name: [null, Validators.required],
       description: [null, Validators.required],
       title: [null, Validators.required],
-      imagePath: ['https://monosushi.com.ua/wp-content/uploads/2022/07/sushyk-zsu_page-0001.jpg.pagespeed.ce.8oVtB1QVQX.jpg', Validators.required]
+      imagePath: [null, Validators.required]
     })
   }
 
@@ -53,16 +53,16 @@ export class AdminDiscountComponent implements OnInit {
   }
 
   addDiscount(): void {
-
-    if (this.editStatus) {
-      this.discountService.update(this.discountForm.value, this.currentCategoryId).subscribe(() => {
-        this.loadDiscount()
-      })
-    } else {
+    // do not add this editStatus true 
+    // if (this.editStatus) {
+    //   this.discountService.update(this.discountForm.value, this.currentCategoryId).subscribe(() => {
+    //     this.loadDiscount()
+    //   })
+    // } else {
       this.discountService.create(this.discountForm.value).subscribe(() => {
         this.loadDiscount()
       })
-    }
+    // }
 
     this.editStatus = false
     this.discountForm.reset()

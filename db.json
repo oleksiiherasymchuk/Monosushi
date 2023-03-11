@@ -15,5 +15,18 @@
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fdrinks.svg?alt=media&token=a66dfbc8-8b05-478d-a6f5-91997c3753b9",
       "id": 1
     }
+  ],
+  "products": [
+    {
+      "category": 1,
+      "name": "california",
+      "path": "sets",
+      "ingredients": "fish, cucumber",
+      "weight": "100",
+      "price": "200",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fhomelogo.jpeg?alt=media&token=2c17820a-bc93-4fc6-873b-dd25d5c4a1e6",
+      "count": 1,
+      "id": 1
+    }
   ]
 }
