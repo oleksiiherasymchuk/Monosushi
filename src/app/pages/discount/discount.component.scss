@@ -48,6 +48,12 @@
                 top: 0;
                 left: 0;
             }
+        }
+
+        .img:hover {
+            width: 110%;
+            height: 330px;
+            transition: .35s;
 
         }
 
@@ -61,6 +67,10 @@
             font-weight: bold;
             width: 100%;
             text-align: center;
+        }
+
+        h5:hover{
+            color: #b5d8f7;
         }
 
         hr {
@@ -78,6 +88,11 @@
             height: 50px;
             border-radius: 7px;
             font-weight: bold;
+        }
+
+        button:hover {
+            background: white;
+            // color: #b5d8f7;
         }
 
     }

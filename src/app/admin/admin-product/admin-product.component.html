@@ -5,7 +5,12 @@
     <div class="form" *ngIf="isOpen">
         <form [formGroup]="productForm" (ngSubmit)="addProduct()">
             <div class="product">
-                <input type="text" value="Роли" formControlName="product" name="product" id="product">
+                <label for="name" class="form-label">Category</label>
+                <select formControlName="category" class="form-select">
+                    <option [ngValue]="category" *ngFor="let category of adminCategories">{{category.path}}
+                    </option>
+                </select>
+                <!-- <input type="text" value="Роли" formControlName="product" name="product" id="product"> -->
             </div>
             <div class="name">
                 <input type="text" placeholder="*Назва" formControlName="name" name="name" id="name">

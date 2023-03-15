@@ -1,0 +1,5 @@
+1. HTML/CSS product info - done
+2. display discount with Resolver - done
+3. Breadcrumb bootstrap  discount/ product info - done
+4. basket css onclick; basket display quantity of products
+5. admin product input with categories

@@ -17,13 +17,23 @@ import { NewsComponent } from './pages/news/news.component';
 import { OffertaComponent } from './pages/offerta/offerta.component';
 import { PartnersComponent } from './pages/partners/partners.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { ProductInfoComponent } from './pages/product-info/product-info.component';
 import { ProductComponent } from './pages/product/product.component';
+import { DiscountResolver } from './shared/services/discount/discount.resolver';
+
+
+import { ProductResolver } from './shared/services/product/product.resolver';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'discount', component: DiscountComponent},
-  { path: 'discount/:id', component: DiscountInfoComponent },
+  { path: 'discount/:id', component: DiscountInfoComponent, resolve: {
+    discountInfo: DiscountResolver
+  } },
   { path: 'product/:category', component: ProductComponent },
+  { path: 'product/:category/:id', component: ProductInfoComponent, resolve: {
+    productInfo: ProductResolver
+  } },
   { path: 'delivery', component: DeliveryComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'about', component: AboutComponent },

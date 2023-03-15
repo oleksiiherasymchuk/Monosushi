@@ -233,12 +233,20 @@
             button {
                 border: 2px solid #b5d8f7;
                 background: #b5d8f7;
-                width: 110px;
-                height: 50px;
+                width: 90px;
+                height: 45px;
                 border-radius: 10px;
                 color: #252525;
                 line-height: 14px;
                 font-weight: bold;
+                margin-left: 5px;
+                // padding: 14px 10px;
+                font-size: 11px;
+                line-height: 12px;
+            }
+
+            button:hover{
+                background-color: white;
             }
         }
     }

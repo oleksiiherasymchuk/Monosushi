@@ -37,25 +37,25 @@
     <div class="menu">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" [routerLink]="[ 'sets' ]" routerLinkActive="active">Всі</a>
+                <a class="nav-link active" [routerLink]="[ '/sets' ]" routerLinkActive="active">Всі</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="[ 'sets' ]" routerLinkActive="active">Філадельфія</a>
+                <a class="nav-link" [routerLink]="[ '/sets' ]" routerLinkActive="active">Філадельфія</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="[ 'sets' ]" routerLinkActive="active">Каліфорнія</a>
+                <a class="nav-link" [routerLink]="[ '/sets' ]" routerLinkActive="active">Каліфорнія</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="[ 'sets' ]" routerLinkActive="active">Запечені</a>
+                <a class="nav-link" [routerLink]="[ '/sets' ]" routerLinkActive="active">Запечені</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="[ 'sets' ]" routerLinkActive="active">Фірмові</a>
+                <a class="nav-link" [routerLink]="[ '/sets' ]" routerLinkActive="active">Фірмові</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="[ 'sets' ]" routerLinkActive="active">Макі</a>
+                <a class="nav-link" [routerLink]="[ '/sets' ]" routerLinkActive="active">Макі</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="[ 'sets' ]" routerLinkActive="active">Фірмові</a>
+                <a class="nav-link" [routerLink]="[ '/sets' ]" routerLinkActive="active">Фірмові</a>
             </li>
         </ul>
         <router-outlet></router-outlet>
@@ -65,11 +65,12 @@
 
         <div class="product" *ngFor="let product of productsArray">
             <div class="productImage">
-                <a href=""><img [src]="product.imagePath" alt=""></a>
+                <a [routerLink]="[ '/product/'+product.category.path, product.id ]"><img [src]="product.imagePath"
+                        alt=""></a>
             </div>
 
             <div class="productTitle">
-                <p>{{ product.name }}</p>
+                <p [routerLink]="[ '/product/'+product.category.path, product.id ]">{{ product.name }}</p>
             </div>
 
             <div class="productDescription">
@@ -79,16 +80,15 @@
 
             <div class="productControls">
                 <div class="productPrice">{{ product.price }} грн</div>
-
+                <!-- 
                 <div class="productQuantity">
                     <button class="decrease">-</button>
                     <input type="number" value="1">
                     <button class="increase">+</button>
-                </div>
+                </div> -->
+
                 <button class="order">ЗАМОВИТИ</button>
             </div>
         </div>
-
     </div>
 </div>
-

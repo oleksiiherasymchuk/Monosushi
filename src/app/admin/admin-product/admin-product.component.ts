@@ -36,7 +36,7 @@ export class AdminProductComponent implements OnInit {
   ngOnInit(): void {
     this.initProductForm();
     this.loadCategories();
-    this.loadProduct();
+    this.loadProduct(); 
   }
 
   initProductForm(): void {
@@ -68,14 +68,14 @@ export class AdminProductComponent implements OnInit {
   }
 
   addProduct(): void {
-    if(this.editStatus){
-      this.productService.update(this.productForm.value, this.currentProductId).subscribe(() => {
-        this.loadProduct();
-        this.isOpen = false;
-        this.editStatus = false;
-        this.toastr.success('Product successfully updated');
-      })
-    } else {
+    // if(!this.editStatus){
+    //   this.productService.update(this.productForm.value, this.currentProductId).subscribe(() => {
+    //     this.loadProduct();
+    //     this.isOpen = false;
+    //     this.editStatus = false;
+    //     this.toastr.success('Product successfully updated');
+    //   })
+    // } else {
       this.productService.create(this.productForm.value).subscribe(() => {
         this.loadProduct();
         this.isOpen = false;
@@ -83,7 +83,7 @@ export class AdminProductComponent implements OnInit {
         this.toastr.success('Product successfully created');
         this.productForm.reset()
       })
-    }
+    // }
   }
 
   editProduct(product: IProductResponse): void {

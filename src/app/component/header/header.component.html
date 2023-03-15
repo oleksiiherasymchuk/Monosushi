@@ -10,35 +10,40 @@
         <ul class="navbar-nav me-auto mb-2 ml-3 mb-lg-0">
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="[ '/discount' ]" routerLinkActive="route-active">
+            <a class="nav-link active" aria-current="page" [routerLink]="[ '/discount' ]"
+              routerLinkActive="route-active">
               <img src="../../../assets/images/discount.svg" alt="">
               <span>Акції</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="[ '/product/rolls' ]" routerLinkActive="route-active">
+            <a class="nav-link active" aria-current="page" [routerLink]="[ '/product/rolls' ]"
+              routerLinkActive="route-active">
               <img src="../../../assets/images/rolls.svg" alt="">
               <span>Роли</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="[ '/product/sets' ]" routerLinkActive="route-active">
+            <a class="nav-link active" aria-current="page" [routerLink]="[ '/product/sets' ]"
+              routerLinkActive="route-active">
               <img src="../../../assets/images/sets.svg" alt="">
               <span>Сети</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="[ '/product/drinks' ]" routerLinkActive="route-active">
+            <a class="nav-link active" aria-current="page" [routerLink]="[ '/product/drinks' ]"
+              routerLinkActive="route-active">
               <img src="../../../assets/images/drinks.svg" alt="">
               <span>Напої</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="[ '/product/souces' ]" routerLinkActive="route-active">
+            <a class="nav-link active" aria-current="page" [routerLink]="[ '/product/souces' ]"
+              routerLinkActive="route-active">
               <img src="../../../assets/images/souces.svg" alt="">
               <span>Соуси</span>
             </a>
@@ -49,7 +54,8 @@
               <img src="../../../assets/images/dropdown.webp" alt="">
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="[ '/delivery' ]" routerLinkActive="route-active">Доставка та оплата</a></li>
+              <li><a class="dropdown-item" [routerLink]="[ '/delivery' ]" routerLinkActive="route-active">Доставка та
+                  оплата</a></li>
               <li><a class="dropdown-item" [routerLink]="[ '/about' ]" routerLinkActive="route-active">Про нас</a></li>
               <li><a class="dropdown-item" [routerLink]="[ '/discount' ]" routerLinkActive="route-active">Акції</a></li>
             </ul>
@@ -77,9 +83,9 @@
       </div>
 
 
-      <div class="basket">
+      <div class="basket" (click)="showBasket()">
         <img src="../../../assets/images/basket.svg" alt="">
-        <span>0 грн</span>
+        <span>{{ total }} грн</span>
       </div>
     </div>
   </nav>
@@ -143,4 +149,40 @@
     <button>ЗАРЕЄСТРУВАТИСЯ</button>
     <p>Вже зареєстровані?<b>Увійти</b></p>
   </form>
+</div>
+
+
+<div class="basketOpen" *ngIf="isBasketOpen">
+  <div class="orderedProducts">
+    <div class="basketEmpty" *ngIf="isBasketEmpty">
+      <img src="../../../assets/images/cart-empty-img.svg" alt="">
+      <p>Кошик порожній</p>
+      <button [routerLink]="[ '/' ]" (click)="goToCatalogue()">Перейти до каталогу</button>
+    </div>
+
+    <div class="basketProduct"  *ngFor="let b of basket">
+      <div class="product">
+        <a href="">
+          <img [src]="b.imagePath" alt="">
+        </a>
+        <div class="productDescription">
+          <p>{{ b.name }}</p>
+          <div class="controlsProduct">
+            <div class="productQuantity">
+              <button (click)="productCount(b, false)" type="button" class="decrease">-</button>
+              <input class="form-control" type="text" [value]="b.count">
+              <button (click)="productCount(b, true)" type="button" class="increase">+</button>
+            </div>
+            <div class="productPrice">{{ b.price }} грн</div>
+            <button class="trash"><img src="../../../assets/images/trash.png" alt=""></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="basketBottom">
+    <p>Сума: {{ total }} грн</p>
+    <button [disabled]="isBasketEmpty">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
+  </div>
 </div>

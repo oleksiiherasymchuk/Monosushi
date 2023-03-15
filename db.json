@@ -14,6 +14,24 @@
       "path": "drinks",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fdrinks.svg?alt=media&token=a66dfbc8-8b05-478d-a6f5-91997c3753b9",
       "id": 1
+    },
+    {
+      "name": "california",
+      "path": "rolls",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Faboutus1.jpeg?alt=media&token=2d018b72-3366-48a4-98d7-168ee0043d56",
+      "id": 2
+    },
+    {
+      "name": "philadelphia max",
+      "path": "sets",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fhomelogo.jpeg?alt=media&token=c524dfd0-d80a-4ef4-9367-fdb2141f3bc7",
+      "id": 3
+    },
+    {
+      "name": "chili",
+      "path": "souces",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fsouces.svg?alt=media&token=1d98b477-daa6-4abe-8b67-a32ee7df3d68",
+      "id": 4
     }
   ],
   "products": [
@@ -27,6 +45,38 @@
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fhomelogo.jpeg?alt=media&token=2c17820a-bc93-4fc6-873b-dd25d5c4a1e6",
       "count": 1,
       "id": 1
+    },
+    {
+      "category": {
+        "name": "chili",
+        "path": "souces",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fsouces.svg?alt=media&token=1d98b477-daa6-4abe-8b67-a32ee7df3d68",
+        "id": 4
+      },
+      "name": "chili",
+      "path": "souces",
+      "ingredients": "ketchup",
+      "weight": "100",
+      "price": "200",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fsouces.svg?alt=media&token=f383b506-178d-4fe6-862d-4ae2fd616a75",
+      "count": 1,
+      "id": 2
+    },
+    {
+      "category": {
+        "name": "cola",
+        "path": "drinks",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fdrinks.svg?alt=media&token=a66dfbc8-8b05-478d-a6f5-91997c3753b9",
+        "id": 1
+      },
+      "name": "cola",
+      "path": "drinks",
+      "ingredients": "cola",
+      "weight": "500",
+      "price": "20",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fphone.svg?alt=media&token=655b94d6-610b-4d54-9249-15d0ff5ddcf7",
+      "count": 1,
+      "id": 3
     }
   ]
 }

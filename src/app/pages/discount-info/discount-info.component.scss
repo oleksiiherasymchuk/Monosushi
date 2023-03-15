@@ -1,0 +1,88 @@
+.breadcrumbNav {
+    margin-left: 4%;
+    margin-top: 25px;
+    font-size: 12px;
+    line-height: 13px;
+
+
+    .breadcrumb-item {
+        text-transform: capitalize;
+
+        a {
+            color: #6c757d;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+
+    }
+
+    // .breadcrumb-item+.breadcrumb-item::before {
+    //     content: "";
+    //     position: relative;
+    //     display: inline-block;
+    //     width: 4px;
+    //     height: 4px;
+    //     border-radius: 50%;
+    //     background: #5a5a5a;
+    //     margin: 0 10px 2px;
+    // }
+}
+
+.wrapper {
+
+    width: 75%;
+    height: 400px;
+    margin: 50px auto;
+
+    .discountTitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #b5d8f7;
+        width: 100%;
+        height: 40%;
+        border-radius: 7px;
+
+        .title {
+            width: 75%;
+            text-align: center;
+
+            .hr {
+                width: 100%;
+                height: 4px;
+                margin-bottom: 15px;
+                background-color: black;
+                border-radius: 7px;
+            }
+
+            p {
+                font-weight: bold;
+                color: #252525;
+                font-size: 42px;
+                line-height: 1.2em;
+            }
+        }
+    }
+
+    .discountDescription{
+        margin-top: 30px;
+
+        ul {
+            color: #5a5a5a;
+            align-self: flex-start;
+            list-style: circle;
+            font-size: 18px;
+            line-height: 1.47em;
+            padding-left: 24px;
+            position: relative;
+
+            li{
+                margin-top: 8px;
+                line-height: 1.47em;
+                padding-left: 24px;
+            }
+        }
+    }
+  
+
+}
