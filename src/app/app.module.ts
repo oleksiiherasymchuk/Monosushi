@@ -35,6 +35,9 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { HttpClientModule } from '@angular/common/http';
+import { UserProfileComponent } from './pages/userProfile/user-profile/user-profile.component';
+import { PersonalInfoComponent } from './pages/userProfile/personal-info/personal-info.component';
+import { HistoryComponent } from './pages/userProfile/history/history.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +62,10 @@ import { HttpClientModule } from '@angular/common/http';
     PartnersComponent,
     PaymentComponent,
     ProductComponent,
-    ProductInfoComponent
+    ProductInfoComponent,
+    UserProfileComponent,
+    PersonalInfoComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

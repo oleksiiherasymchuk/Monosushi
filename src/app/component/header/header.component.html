@@ -78,9 +78,17 @@
       </div>
 
 
-      <div class="user" [routerLink]="[ '/admin' ]" routerLinkActive="route-active">
+      <div class="user" (click)="showEntranceModal()">
         <img src="../../../assets/images/user.svg" alt="">
       </div>
+
+      <!-- <li class="nav-item" *ngIf="!isLogin">
+        <a [routerLink]="[ '/auth' ]" routerLinkActive="route-active" class="nav-link" aria-current="page">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="isLogin">
+        <a [routerLink]="[ '/'+loginUrl ]" routerLinkActive="route-active" class="nav-link" aria-current="page">{{
+          loginPage }}</a>
+      </li> -->
 
 
       <div class="basket" (click)="showBasket()">
@@ -102,33 +110,34 @@
   </form>
 </div>
 
-<div class="entrance">
-  <div class="closeEntranceModal">x</div>
+
+<div class="entrance" *ngIf="isEntranceModalShown">
+  <div class="closeEntranceModal" (click)="closeEntranceModal()">x</div>
   <h1>Вхід в кабінет</h1>
-  <form action="">
-    <input type="email" placeholder="*Ваш email">
-    <input type="password" placeholder="*Пароль">
-    <button>УВІЙТИ В КАБІНЕТ</button>
+  <form [formGroup] = "authForm" (ngSubmit) = 'login()'>
+    <input formControlName="email" name="email" type="email" placeholder="*Ваш email" class="form-control">
+    <input formControlName="password" name="password" type="password" placeholder="*Пароль">
+    <button [disabled] = "authForm.invalid" type="submit">УВІЙТИ В КАБІНЕТ</button>
     <p>
-      <a href=""><span class="forgot">Забули пароль?</span></a>
-      <a href=""><span class="signIn">Зареєструватися</span></a>
+      <span class="forgot" (click)="showForgetModal()">Забули пароль?</span>
+      <span class="signIn" (click)="showSignInModal()">Зареєструватися</span>
     </p>
   </form>
 </div>
 
-<div class="forgetModal">
-  <div class="closeForgetModal">x</div>
+<div class="forgetModal" *ngIf="isForgetModalShown">
+  <div class="closeForgetModal" (click)="closeForgetModal()">x</div>
   <h1>Відновити пароль</h1>
   <h3>Після заповнення інструкції, ми надішлемо вам детальну інструкцію по відновленню паролю</h3>
   <form action="">
     <input type="email" placeholder="*Ваш email">
     <button>ВІДНОВИТИ ПАРОЛЬ</button>
   </form>
-  <p>Повернутися до <a href=""><b>Входу</b></a></p>
+  <p>Повернутися до <b (click)="showEntranceModal()">Входу</b></p>
 </div>
 
-<div class="signInModal">
-  <div class="closesignInModal">x</div>
+<div class="signInModal" *ngIf="isSignInModalShown">
+  <div class="closesignInModal" (click)="closeSignInModal()">x</div>
   <h1>Зареєструватися</h1>
   <form action="">
     <div class="halfInput">
@@ -147,7 +156,7 @@
       <span>Я погоджуюсь з <b>Правилами користування</b></span>
     </label>
     <button>ЗАРЕЄСТРУВАТИСЯ</button>
-    <p>Вже зареєстровані?<b>Увійти</b></p>
+    <p>Вже зареєстровані?<b (click)="showEntranceModal()">Увійти</b></p>
   </form>
 </div>
 
@@ -160,7 +169,7 @@
       <button [routerLink]="[ '/' ]" (click)="goToCatalogue()">Перейти до каталогу</button>
     </div>
 
-    <div class="basketProduct"  *ngFor="let b of basket">
+    <div class="basketProduct" *ngFor="let b of basket">
       <div class="product">
         <a href="">
           <img [src]="b.imagePath" alt="">
@@ -186,3 +195,4 @@
     <button [disabled]="isBasketEmpty">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
   </div>
 </div>
+

@@ -8,7 +8,7 @@
             <button class="nav-link" [routerLink]="[ 'product' ]" routerLinkActive="active"
                 type="button">Товари</button>
             <button class="nav-link" [routerLink]="[ 'order' ]" routerLinkActive="active" type="button">Замовлення</button>
-            <button class="exit">ВИХІД</button>
+            <button class="exit" (click)="logout()">ВИХІД</button>
         </div>
        
         <div class="tab-content w-100" id="v-pills-tabContent">

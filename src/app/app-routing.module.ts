@@ -19,6 +19,10 @@ import { PartnersComponent } from './pages/partners/partners.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { ProductInfoComponent } from './pages/product-info/product-info.component';
 import { ProductComponent } from './pages/product/product.component';
+import { HistoryComponent } from './pages/userProfile/history/history.component';
+import { PersonalInfoComponent } from './pages/userProfile/personal-info/personal-info.component';
+import { UserProfileComponent } from './pages/userProfile/user-profile/user-profile.component';
+import { AuthGuard } from './shared/guards/auth/auth.guard';
 import { DiscountResolver } from './shared/services/discount/discount.resolver';
 
 
@@ -42,7 +46,12 @@ const routes: Routes = [
   { path: 'partners', component: PartnersComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'admin', component: AdminComponent, children: [
+  { path: 'profile',canActivate: [AuthGuard], component: UserProfileComponent, children: [
+    { path: 'personal-info', component: PersonalInfoComponent },
+    { path: 'history', component: HistoryComponent },
+
+  ] },
+  { path: 'admin', component: AdminComponent,canActivate: [AuthGuard] , children: [
     { path: 'category', component: AdminCategoryComponent },
     { path: 'product', component: AdminProductComponent },
     { path: 'discount', component: AdminDiscountComponent },

@@ -272,8 +272,9 @@ header {
     align-items: center;
     flex-direction: column;
     text-align: center;
-
-    visibility: hidden;
+    z-index: 99;
+    background-color: #fff;
+    // visibility: hidden;
 
 
     .closeEntranceModal {
@@ -312,21 +313,27 @@ header {
         }
 
 
-        a {
-            text-decoration: none;
-            color: black;
-        }
+        // a {
+        //     text-decoration: none;
+        //     color: black;
+        // }
 
-        a:hover {
-            color: #b5d8f7;
-        }
+        // a:hover {
+        //     color: #b5d8f7;
+        // }
 
         p {
             width: 100%;
             display: flex;
             justify-content: space-between;
             font-weight: bold;
+
+            span:hover{
+                color: #b5d8f7;
+            }
         }
+
+        
     }
 }
 
@@ -345,8 +352,9 @@ header {
     align-items: center;
     flex-direction: column;
     text-align: center;
+    background-color: #fff;
 
-    visibility: hidden;
+    // visibility: hidden;
 
     h3 {
         width: 90%;
@@ -394,9 +402,8 @@ header {
 
     }
 
-    a {
-        text-decoration: none;
-        color: black;
+    b:hover{
+        color: #b5d8f7;
     }
 }
 
@@ -405,6 +412,7 @@ header {
     height: 500px;
     border-radius: 7px;
     position: absolute;
+    background-color: white;
     top: 0;
     right: 0;
     left: 0;
@@ -415,8 +423,8 @@ header {
     align-items: center;
     flex-direction: column;
     text-align: center;
-
-    visibility: hidden;
+    z-index: 99;
+    // visibility: hidden;
 
 
     .closesignInModal {
@@ -485,9 +493,12 @@ header {
 
     }
 
-    a {
-        text-decoration: none;
-        color: black;
+    // a {
+    //     text-decoration: none;
+    //     color: black;
+    // }
+    b:hover{
+        color: #b5d8f7;
     }
 }
 

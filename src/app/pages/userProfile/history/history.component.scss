@@ -1,0 +1,23 @@
+.wrapper{
+    height: auto;
+    width: 75%;
+    margin: 0 auto 50px;
+
+    p{
+        font-size: 18px;
+        line-height: 1.5em;
+        font-family: 'RotondaC';
+        color: #5A5A5A;
+        margin-top: 30px;
+
+        span{
+            color: #b5d8f7;
+        
+        }
+
+        span:hover{
+            text-decoration-line: underline;
+            transition: .35s;
+        }
+    }
+}

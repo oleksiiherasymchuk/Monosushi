@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="d-flex align-items-start mt-5 ">
+        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <button class="nav-link" [routerLink]="[ 'personal-info' ]" routerLinkActive="active"
+            type="button">Особисті дані</button>
+            <button class="nav-link" [routerLink]="[ 'history' ]" routerLinkActive="active"
+                type="button">Історія замовлень</button>
+
+            <button class="exit" (click)="logout()">ВИХІД</button>
+        </div>
+       
+        <div class="tab-content w-100" id="v-pills-tabContent">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
