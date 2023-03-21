@@ -1,3 +1,4 @@
+import { AdminAuthorizationComponent } from './admin/admin-authorization/admin-authorization.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
@@ -51,6 +52,7 @@ const routes: Routes = [
     { path: 'history', component: HistoryComponent },
 
   ] },
+  { path: 'auth', component: AdminAuthorizationComponent },
   { path: 'admin', component: AdminComponent,canActivate: [AuthGuard] , children: [
     { path: 'category', component: AdminCategoryComponent },
     { path: 'product', component: AdminProductComponent },

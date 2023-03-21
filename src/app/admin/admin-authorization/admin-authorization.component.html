@@ -1,0 +1,8 @@
+<div class="entrance">
+    <h1>Вхід в кабінет адміна</h1>
+    <form [formGroup]="authForm">
+        <input formControlName="email" name="email" type="email" placeholder="*Ваш email" class="form-control">
+        <input formControlName="password" name="password" type="password" placeholder="*Пароль">
+        <button [disabled]="authForm.invalid" type="submit" (click)="loginUser()">УВІЙТИ В КАБІНЕТ</button>
+    </form>
+</div>

@@ -77,18 +77,25 @@
         </div>
       </div>
 
+      <!-- <li class="nav-item" *ngIf="!isLogin" >
+                        <a [routerLink]="[ '/auth' ]" routerLinkActive="route-active" class="nav-link" aria-current="page">Login</a>
+                    </li> -->
 
-      <div class="user" (click)="showEntranceModal()">
-        <img src="../../../assets/images/user.svg" alt="">
-      </div>
 
       <!-- <li class="nav-item" *ngIf="!isLogin">
-        <a [routerLink]="[ '/auth' ]" routerLinkActive="route-active" class="nav-link" aria-current="page">Login</a>
+        <a (click)="openLoginDialog()" class="nav-link" aria-current="page">Login</a>
       </li>
       <li class="nav-item" *ngIf="isLogin">
         <a [routerLink]="[ '/'+loginUrl ]" routerLinkActive="route-active" class="nav-link" aria-current="page">{{
           loginPage }}</a>
       </li> -->
+
+      <div class="user" *ngIf="!isLogin">
+        <img src="../../../assets/images/user.svg" alt="" (click)="openLoginDialog()"> 
+      </div>
+      <div class="user" *ngIf="isLogin">
+        <img src="../../../assets/images/user.svg" alt="" [routerLink]="[ '/'+loginUrl ]" routerLinkActive="route-active"> 
+      </div>
 
 
       <div class="basket" (click)="showBasket()">
@@ -111,13 +118,13 @@
 </div>
 
 
-<div class="entrance" *ngIf="isEntranceModalShown">
+<!-- <div class="entrance" *ngIf="isEntranceModalShown">
   <div class="closeEntranceModal" (click)="closeEntranceModal()">x</div>
   <h1>Вхід в кабінет</h1>
-  <form [formGroup] = "authForm" (ngSubmit) = 'login()'>
+  <form [formGroup]="authForm" (ngSubmit)='login()'>
     <input formControlName="email" name="email" type="email" placeholder="*Ваш email" class="form-control">
     <input formControlName="password" name="password" type="password" placeholder="*Пароль">
-    <button [disabled] = "authForm.invalid" type="submit">УВІЙТИ В КАБІНЕТ</button>
+    <button [disabled]="authForm.invalid" type="submit">УВІЙТИ В КАБІНЕТ</button>
     <p>
       <span class="forgot" (click)="showForgetModal()">Забули пароль?</span>
       <span class="signIn" (click)="showSignInModal()">Зареєструватися</span>
@@ -158,7 +165,7 @@
     <button>ЗАРЕЄСТРУВАТИСЯ</button>
     <p>Вже зареєстровані?<b (click)="showEntranceModal()">Увійти</b></p>
   </form>
-</div>
+</div> -->
 
 
 <div class="basketOpen" *ngIf="isBasketOpen">
@@ -195,4 +202,3 @@
     <button [disabled]="isBasketEmpty">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
   </div>
 </div>
-

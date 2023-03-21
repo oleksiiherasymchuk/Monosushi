@@ -1,0 +1,47 @@
+<div class="entrance" *ngIf="isEntranceModalShown">
+    <h1>Вхід в кабінет</h1>
+    <!-- (ngSubmit)='login()' -->
+    <form [formGroup]="authForm">
+        <input formControlName="email" name="email" type="email" placeholder="*Ваш email" class="form-control">
+        <input formControlName="password" name="password" type="password" placeholder="*Пароль">
+        <button [disabled]="authForm.invalid" type="submit" (click)="loginUser()">УВІЙТИ В КАБІНЕТ</button>
+        <p>
+            <span class="forgot" (click)="showForgetModal()">Забули пароль?</span>
+            <span class="signIn" (click)="showSignInModal()">Зареєструватися</span>
+        </p>
+    </form>
+</div>
+
+<div class="signInModal" *ngIf="isSignInModalShown">
+    <h1>Зареєструватися</h1>
+    <form [formGroup]="registerForm">
+        <div class="halfInput">
+            <input formControlName="firstName" name="firstName" type="text" class="name" placeholder="Ваше ім'я">
+            <input formControlName="lastName" name="lastName" type="text" class="surname" placeholder="Ваше прізвище">
+        </div>
+        <input formControlName="phoneNumber" name="phoneNumber" type="phoneNumber" class="phone" placeholder="Ваш телефон">
+        <input formControlName="email" name="email" type="email" class="email" placeholder="Ваш email">
+        <div class="halfInput">
+            <input formControlName="password" name="password" type="password" class="password" placeholder="Пароль">
+            <input formControlName="password" name="password" type="password" class="repeatPassword" placeholder="Повторіть пароль">
+        </div>
+
+        <label for="checkbox">
+            <input type="checkbox" class="checkbox">
+            <span>Я погоджуюсь з <b>Правилами користування</b></span>
+        </label>
+        <button [disabled] ='registerForm.invalid' type="submit" (click)="registerUser()">ЗАРЕЄСТРУВАТИСЯ</button>
+        <p>Вже зареєстровані?<b (click)="showEntranceModal()">Увійти</b></p>
+    </form>
+</div>
+
+
+<div class="forgetModal" *ngIf="isForgetModalShown">
+    <h1>Відновити пароль</h1>
+    <h3>Після заповнення інструкції, ми надішлемо вам детальну інструкцію по відновленню паролю</h3>
+    <form action="">
+        <input type="email" placeholder="*Ваш email">
+        <button>ВІДНОВИТИ ПАРОЛЬ</button>
+    </form>
+    <p>Повернутися до <b (click)="showEntranceModal()">Входу</b></p>
+</div>

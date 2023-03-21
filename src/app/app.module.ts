@@ -34,10 +34,15 @@ import { ProductInfoComponent } from './pages/product-info/product-info.componen
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 import { HttpClientModule } from '@angular/common/http';
 import { UserProfileComponent } from './pages/userProfile/user-profile/user-profile.component';
 import { PersonalInfoComponent } from './pages/userProfile/personal-info/personal-info.component';
 import { HistoryComponent } from './pages/userProfile/history/history.component';
+import { SharedModule } from './shared/shared.module';
+import { AuthComponent } from './component/auth/auth/auth.component';
+import { AdminAuthorizationComponent } from './admin/admin-authorization/admin-authorization.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +70,9 @@ import { HistoryComponent } from './pages/userProfile/history/history.component'
     ProductInfoComponent,
     UserProfileComponent,
     PersonalInfoComponent,
-    HistoryComponent
+    HistoryComponent,
+    AuthComponent,
+    AdminAuthorizationComponent
   ],
   imports: [
     BrowserModule,
@@ -76,10 +83,13 @@ import { HistoryComponent } from './pages/userProfile/history/history.component'
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage()),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
     ToastrModule.forRoot(),
-    
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
