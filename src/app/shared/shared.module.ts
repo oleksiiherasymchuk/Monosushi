@@ -8,7 +8,6 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 const MATERIAL = [
     MatDialogModule,
@@ -23,14 +22,12 @@ const MATERIAL = [
         ...MATERIAL,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule,
 
     ],
     exports: [
         ...MATERIAL,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule,
     ]
 })
 export class SharedModule { }

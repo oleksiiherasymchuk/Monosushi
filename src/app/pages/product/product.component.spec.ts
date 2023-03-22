@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ProductComponent } from './product.component';
 
@@ -8,7 +10,19 @@ describe('ProductComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductComponent ]
+      declarations: [ ProductComponent ],
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule,
+        // ReactiveFormsModule,
+        // MatDialogModule
+      ],
+      providers: [
+        // { provide: MatDialogRef, useValue: {} },
+        // { provide: Auth, useValue: {} },
+        // { provide: Firestore, useValue: {} },
+        // { provide: ToastrService, useValue: {} },
+      ]
     })
     .compileComponents();
 

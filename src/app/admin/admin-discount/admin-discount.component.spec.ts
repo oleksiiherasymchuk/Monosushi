@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Storage } from '@angular/fire/storage';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AdminDiscountComponent } from './admin-discount.component';
 
@@ -8,7 +11,14 @@ describe('AdminDiscountComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminDiscountComponent ]
+      declarations: [ AdminDiscountComponent ],
+      imports: [
+        HttpClientTestingModule,
+        ReactiveFormsModule
+      ],
+      providers: [
+        { provide: Storage, useValue: {} },
+      ]
     })
     .compileComponents();
 

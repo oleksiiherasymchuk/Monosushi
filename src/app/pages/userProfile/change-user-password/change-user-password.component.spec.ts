@@ -8,7 +8,7 @@ describe('ChangeUserPasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChangeUserPasswordComponent ]
+      declarations: [ ChangeUserPasswordComponent ],
     })
     .compileComponents();
 

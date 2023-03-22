@@ -1,0 +1,27 @@
+Приклад покриття тестом service
+
+describe('SomeService - testing HTTP request method getData()', () => {
+let httpTestingController: HttpTestingController
+beforeEach(() => {
+TestBed.configureTestingModule({
+imports: [HttpClientTestingModule],
+providers: [SomeService],
+})
+
+someService = TestBed.get(SomeService)
+httpTestingController = TestBed.get(
+HttpTestingController
+)})
+
+it('can test HttpClient.get', () => {
+const data = [1, 2, 3]
+someService
+.getData()
+.subscribe((response) => expect(response).toBe(data))
+const req = httpTestingController.expectOne('/api/data')
+expect(req.request.method).toBe('GET')
+req.flush(data)
+})
+
+afterEach(() => httpTestingController.verify())
+})

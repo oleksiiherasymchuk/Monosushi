@@ -1,0 +1,25 @@
+Приклад покриття тестом pipe
+cut-text.pipe.ts
+@Pipe({ name: 'cutText' })
+export class CutTextPipe implements PipeTransform {
+transform(text: string, length: number): string {
+if (text.length <= length) return text
+else return `${text.substr(0, length)}...`
+}
+}
+
+cut-text.pipe.spec.ts
+describe('CutTextPipe', () => {
+let cutText = new CutTextPipe()
+it('doesn\'t transform "Hello, World!"', () => {
+expect(cutText.transform('Hello, World!', 50)).toBe(
+'Hello, World!'
+)
+})
+
+it('transforms "Hello, World!" to "Hello..."', () => {
+expect(cutText.transform('Hello, World!', 5)).toBe(
+'Hello...'
+)
+})
+})

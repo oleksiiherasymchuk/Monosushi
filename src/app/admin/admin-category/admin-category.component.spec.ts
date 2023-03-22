@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Storage } from '@angular/fire/storage';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 import { AdminCategoryComponent } from './admin-category.component';
 
@@ -8,7 +12,15 @@ describe('AdminCategoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminCategoryComponent ]
+      declarations: [ AdminCategoryComponent ],
+      imports: [
+        HttpClientTestingModule,
+        ReactiveFormsModule
+      ],
+      providers: [
+        { provide: Storage, useValue: {} },
+        { provide: ToastrService, useValue: {} },
+      ]
     })
     .compileComponents();
 

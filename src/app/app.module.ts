@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -53,6 +54,7 @@ import { CallModalComponent } from './component/call-modal/call-modal.component'
     provideAuth(() => getAuth()),
     ToastrModule.forRoot(),
     SharedModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
