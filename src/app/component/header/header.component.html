@@ -64,7 +64,7 @@
       </div>
 
       <div class="phone">
-        <button>
+        <button (click)="openPhoneModal()">
           <img src="../../../assets/images/phone.svg" alt="">
           <span>Ми зателефонуємо</span>
         </button>
@@ -77,19 +77,6 @@
         </div>
       </div>
 
-      <!-- <li class="nav-item" *ngIf="!isLogin" >
-                        <a [routerLink]="[ '/auth' ]" routerLinkActive="route-active" class="nav-link" aria-current="page">Login</a>
-                    </li> -->
-
-
-      <!-- <li class="nav-item" *ngIf="!isLogin">
-        <a (click)="openLoginDialog()" class="nav-link" aria-current="page">Login</a>
-      </li>
-      <li class="nav-item" *ngIf="isLogin">
-        <a [routerLink]="[ '/'+loginUrl ]" routerLinkActive="route-active" class="nav-link" aria-current="page">{{
-          loginPage }}</a>
-      </li> -->
-
       <div class="user" *ngIf="!isLogin">
         <img src="../../../assets/images/user.svg" alt="" (click)="openLoginDialog()"> 
       </div>
@@ -100,72 +87,12 @@
 
       <div class="basket" (click)="showBasket()">
         <img src="../../../assets/images/basket.svg" alt="">
+        <span class="productQuantityInBasket">{{ productQuantityInBasket }}</span>
         <span>{{ total }} грн</span>
       </div>
     </div>
   </nav>
 </header>
-
-<div class="phoneModal">
-  <div class="closePhoneModal">x</div>
-  <h1>Ми зателефонуємо</h1>
-  <h3>Залиште номер телефону і наші менеджери звяжуться з вами</h3>
-  <form action="" class="form">
-    <input class="name" type="text" placeholder="Ваше ім'я">
-    <input class="number" type="number" placeholder="Ваш номер телефону">
-    <button class="send">НАДІСЛАТИ</button>
-  </form>
-</div>
-
-
-<!-- <div class="entrance" *ngIf="isEntranceModalShown">
-  <div class="closeEntranceModal" (click)="closeEntranceModal()">x</div>
-  <h1>Вхід в кабінет</h1>
-  <form [formGroup]="authForm" (ngSubmit)='login()'>
-    <input formControlName="email" name="email" type="email" placeholder="*Ваш email" class="form-control">
-    <input formControlName="password" name="password" type="password" placeholder="*Пароль">
-    <button [disabled]="authForm.invalid" type="submit">УВІЙТИ В КАБІНЕТ</button>
-    <p>
-      <span class="forgot" (click)="showForgetModal()">Забули пароль?</span>
-      <span class="signIn" (click)="showSignInModal()">Зареєструватися</span>
-    </p>
-  </form>
-</div>
-
-<div class="forgetModal" *ngIf="isForgetModalShown">
-  <div class="closeForgetModal" (click)="closeForgetModal()">x</div>
-  <h1>Відновити пароль</h1>
-  <h3>Після заповнення інструкції, ми надішлемо вам детальну інструкцію по відновленню паролю</h3>
-  <form action="">
-    <input type="email" placeholder="*Ваш email">
-    <button>ВІДНОВИТИ ПАРОЛЬ</button>
-  </form>
-  <p>Повернутися до <b (click)="showEntranceModal()">Входу</b></p>
-</div>
-
-<div class="signInModal" *ngIf="isSignInModalShown">
-  <div class="closesignInModal" (click)="closeSignInModal()">x</div>
-  <h1>Зареєструватися</h1>
-  <form action="">
-    <div class="halfInput">
-      <input type="text" class="name" placeholder="Ваше ім'я">
-      <input type="text" class="surname" placeholder="Ваше прізвище">
-    </div>
-    <input type="text" class="phone" placeholder="Ваш телефон">
-    <input type="email" class="email" placeholder="Ваш email">
-    <div class="halfInput">
-      <input type="password" class="password" placeholder="Пароль">
-      <input type="password" class="repeatPassword" placeholder="Повторіть пароль">
-    </div>
-
-    <label for="checkbox">
-      <input type="checkbox" class="checkbox">
-      <span>Я погоджуюсь з <b>Правилами користування</b></span>
-    </label>
-    <button>ЗАРЕЄСТРУВАТИСЯ</button>
-    <p>Вже зареєстровані?<b (click)="showEntranceModal()">Увійти</b></p>
-  </form>
-</div> -->
 
 
 <div class="basketOpen" *ngIf="isBasketOpen">
@@ -176,7 +103,7 @@
       <button [routerLink]="[ '/' ]" (click)="goToCatalogue()">Перейти до каталогу</button>
     </div>
 
-    <div class="basketProduct" *ngFor="let b of basket">
+    <div class="basketProduct" *ngFor="let b of basket; index as i">
       <div class="product">
         <a href="">
           <img [src]="b.imagePath" alt="">
@@ -189,8 +116,8 @@
               <input class="form-control" type="text" [value]="b.count">
               <button (click)="productCount(b, true)" type="button" class="increase">+</button>
             </div>
-            <div class="productPrice">{{ b.price }} грн</div>
-            <button class="trash"><img src="../../../assets/images/trash.png" alt=""></button>
+            <div class="productPrice">{{ b.price * b.count }} грн</div>
+            <button class="trash" (click)="deleteBasketProduct(i)"><img src="../../../assets/images/trash.png" alt=""></button>
           </div>
         </div>
       </div>

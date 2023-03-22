@@ -1,6 +1,5 @@
 <div class="entrance" *ngIf="isEntranceModalShown">
     <h1>Вхід в кабінет</h1>
-    <!-- (ngSubmit)='login()' -->
     <form [formGroup]="authForm">
         <input formControlName="email" name="email" type="email" placeholder="*Ваш email" class="form-control">
         <input formControlName="password" name="password" type="password" placeholder="*Пароль">
@@ -22,9 +21,10 @@
         <input formControlName="phoneNumber" name="phoneNumber" type="phoneNumber" class="phone" placeholder="Ваш телефон">
         <input formControlName="email" name="email" type="email" class="email" placeholder="Ваш email">
         <div class="halfInput">
-            <input formControlName="password" name="password" type="password" class="password" placeholder="Пароль">
-            <input formControlName="password" name="password" type="password" class="repeatPassword" placeholder="Повторіть пароль">
+            <input (input)="checkConfirmedPassword()" formControlName="password" name="password" type="password" class="password" placeholder="Пароль">
+            <input (input)="checkConfirmedPassword()" formControlName="confirmedPassword" name="confirmedPassword" type="password" class="repeatPassword" placeholder="Повторіть пароль">
         </div>
+        <mat-error *ngIf="checkVisibilityError('confirmedPassword', 'matchError')">Confirmed password is required</mat-error>
 
         <label for="checkbox">
             <input type="checkbox" class="checkbox">
@@ -34,6 +34,7 @@
         <p>Вже зареєстровані?<b (click)="showEntranceModal()">Увійти</b></p>
     </form>
 </div>
+
 
 
 <div class="forgetModal" *ngIf="isForgetModalShown">

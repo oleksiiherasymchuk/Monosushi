@@ -1,13 +1,13 @@
 import { AccountService } from 'src/app/shared/services/account/account.service';
 import { Component, DoCheck, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product.interface';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import { ProductService } from 'src/app/shared/services/product/product.service';
 import { ROLE } from 'src/app/shared/constants/role.constant';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthComponent } from '../auth/auth/auth.component';
+import { CallModalComponent } from '../call-modal/call-modal.component';
 
 @Component({
   selector: 'app-header',
@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   public isBasketEmpty: boolean = false
 
   public total: number = 0
+  public productQuantityInBasket: number = 0
   public basket: Array<IProductResponse> = []
   public currentProduct!: IProductResponse;
 
@@ -31,9 +32,7 @@ export class HeaderComponent implements OnInit {
     private orderService: OrderService,
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private fb: FormBuilder,
     private accountService: AccountService,
-    private router: Router,
     public dialog: MatDialog,
 
   ) { }
@@ -76,6 +75,7 @@ export class HeaderComponent implements OnInit {
       this.basket = JSON.parse(localStorage.getItem('basket') as string)
     }
     this.getTotalPrice()
+    this.productQuantityInBasket = this.basket.length
   }
 
   getTotalPrice(): void {
@@ -95,6 +95,22 @@ export class HeaderComponent implements OnInit {
     } else if (!value && product.count > 1) {
       --product.count;
     }
+    this.getTotalPrice()
+  }
+
+  deleteBasketProduct(index: number): void {
+    //  to do all logic for delete products in basket
+    // if(this.basket.length === 0){
+    //   this.isBasketEmpty = true
+    // }
+    // make delete basket product with service
+    this.basket.splice(index, 1)
+    this.productQuantityInBasket = this.basket.length
+    if(this.basket.length === 0){
+      this.total = 0
+    }
+
+    
   }
 
   addToBasket(product: IProductResponse): void {
@@ -127,6 +143,16 @@ export class HeaderComponent implements OnInit {
     }).afterClosed().subscribe(() => {
       console.log('authorized');
       
+    })
+  }
+
+  openPhoneModal(): void{
+    this.dialog.open(CallModalComponent, {
+      backdropClass: 'call-back',
+      panelClass: 'call-dialog',
+      autoFocus: false
+    }).afterClosed().subscribe(() => {
+      console.log('call modal');
     })
   }
 

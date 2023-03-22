@@ -2,5 +2,8 @@ basket css onclick; basket display quantity of products
 admin product input with categories
 Зберігання авторизаційних даних через localstorage. - done for db, !!!add value from sign in form!!!
 angular material make body gray modal basket
+product, product/:category. product/:category/:id
+basket make angular material dialog.open, delete and create with firebase
+
 
 

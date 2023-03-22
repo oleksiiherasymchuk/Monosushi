@@ -70,3 +70,12 @@ $custom-theme: mat.define-light-theme($custom-theme-primary, $custom-theme-accen
     width: 700px;
     min-height: 500px;
 }
+
+.call-back {
+  background-color: rgba(0, 0, 0, 0.701);
+}
+
+.call-dialog {
+  width: 700px;
+  height: 400px;
+}
