@@ -1,8 +1,9 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
-import { deleteObject, getDownloadURL, percentage, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IDiscount, IDiscountResponse } from 'src/app/shared/interfaces/discount/discount.interface';
+import { IDiscountResponse } from 'src/app/shared/interfaces/discount/discount.interface';
 import { DiscountService } from 'src/app/shared/services/discount/discount.service';
+import { ImagesService } from 'src/app/shared/services/images/images.service';
 
 @Component({
   selector: 'app-admin-discount',
@@ -11,21 +12,20 @@ import { DiscountService } from 'src/app/shared/services/discount/discount.servi
 })
 export class AdminDiscountComponent implements OnInit {
 
-  // public adminDiscounts!: IDiscount[];
-  // public description!: string;
-  public imagePath = 'https://la.ua/wp-content/uploads/2021/08/6-1.jpg';
+  public isOpen: boolean = false;
   public editStatus: boolean = false;
   public editID!: number;
-
   public adminDiscounts!: IDiscountResponse[];
   public discountForm!: FormGroup;
   public isUploaded: boolean = false;
-  private currentCategoryId: number = 0
+  private currentCategoryId!: number | string;
+  
 
   constructor(
     private discountService: DiscountService,
     private fb: FormBuilder,
-    private storage: Storage,
+    private toastr: ToastrService,
+    private imageService: ImagesService
   ) { }
 
   ngOnInit(): void {
@@ -42,59 +42,64 @@ export class AdminDiscountComponent implements OnInit {
     })
   }
 
+
   addDiscountItem(): void {
-    this.editStatus = !this.editStatus
+    this.isOpen = !this.isOpen
+    this.discountForm.reset()
   }
 
   loadDiscount(): void {
-    this.discountService.getAll().subscribe((data) => {
-      this.adminDiscounts = data
+    this.discountService.getAllFirebase().subscribe((data) => {
+      this.adminDiscounts = data as IDiscountResponse[]
+      this.discountForm.patchValue({
+        discount: this.adminDiscounts[0].id
+      })
     })
   }
 
   addDiscount(): void {
-    // do not add this editStatus true 
-    // if (this.editStatus) {
-    //   this.discountService.update(this.discountForm.value, this.currentCategoryId).subscribe(() => {
-    //     this.loadDiscount()
-    //   })
-    // } else {
-      this.discountService.create(this.discountForm.value).subscribe(() => {
+    if (this.editStatus) {
+      this.discountService.updateFirebase(this.discountForm.value, this.currentCategoryId as string).then(() => {
         this.loadDiscount()
+        this.toastr.success('Category successfully updated')
       })
-    // }
-
+    } else {
+      this.discountService.createFirebase(this.discountForm.value).then(() => {
+        this.loadDiscount()
+        this.toastr.success('Discount successfully created')
+      })
+    }
+    this.isOpen = false
     this.editStatus = false
-    this.discountForm.reset()
     this.isUploaded = false
+    this.discountForm.reset()
   }
 
   editDiscount(discount: IDiscountResponse): void {
-    this.editStatus = true
     this.discountForm.patchValue({
       name: discount.name,
       title: discount.title,
       description: discount.description,
       imagePath: discount.imagePath,
     })
-    // this.editStatus = false
-    this.currentCategoryId = discount.id
+    this.isOpen = true
+    this.editStatus = true
     this.isUploaded = true
+    this.currentCategoryId = discount.id as number
+    this.discountService.getOneFirebase(discount.id as string).subscribe((data => { }))
   }
 
   deleteDiscount(discount: IDiscountResponse): void {
-    this.discountService.delete(discount.id).subscribe(() => {
+    this.discountService.deleteFirebase(discount.id as string).then(() => {
       this.loadDiscount()
+      this.toastr.success('Discount successfully deleted');
     })
-
     this.discountForm.reset()
   }
 
-
-
   upload(event: any): void {
     const file = event.target.files[0]
-    this.uploadFile('images', file.name, file)
+    this.imageService.uploadFile('images', file.name, file)
       .then(data => {
         this.discountForm.patchValue({
           imagePath: data
@@ -106,91 +111,18 @@ export class AdminDiscountComponent implements OnInit {
       })
   }
 
-  async uploadFile(folder: string, name: string, file: File | null): Promise<string> {
-    const path = `${folder}/${name}`
-    let url = ''
-    if (file) {
-      try {
-        const storageRef = ref(this.storage, path)
-        const task = uploadBytesResumable(storageRef, file)
-        percentage(task).subscribe((data) => {
-          // console.log(data);
-        })
-        await task
-        url = await getDownloadURL(storageRef)
-      } catch (e: any) {
-        console.error(e)
-      }
-    } else {
-      console.log('Wrong format');
-    }
-    return Promise.resolve(url)
-  }
-
   deleteImage(): void {
-    const task = ref(this.storage, this.valueByControl('imagePath'))
-    deleteObject(task).then(() => {
-      console.log('File deleted');
+    this.imageService.deleteUploadFile(this.valueByControl('imagePath')).then(() => {
       this.isUploaded = false
-      // this.uploadPercent = 0
       this.discountForm.patchValue({
         imagePath: null
       })
-
+    }).catch((err) => {
+      console.log(err);
     })
   }
+
   valueByControl(control: string): string {
     return this.discountForm.get(control)?.value
   }
-
 }
-
-
-// getDiscounts(): void {
-//   this.discountService.getAll().subscribe(data => {
-//     this.adminDiscounts = data;
-//   })
-// }
-
-// addDiscount(): void {
-//   const newDiscount = {
-//     description: this.description,
-//     imagePath: this.imagePath
-//   };
-//   this.discountService.create(newDiscount).subscribe(() => {
-//     this.getDiscounts();
-//     this.resetForm();
-//   })
-// }
-
-// editDiscount(discount: IDiscount): void {
-//   this.description = discount.description;
-//   this.imagePath = discount.imagePath;
-//   this.editStatus = true;
-//   this.editID = discount.id;
-// }
-
-// saveDiscount(): void {
-//   const updateDiscount = {
-//     description: this.description,
-//     imagePath: this.imagePath
-//   };
-//   this.discountService.update(updateDiscount, this.editID).subscribe(() => {
-//     this.getDiscounts();
-//     this.resetForm();
-//   })
-// }
-
-// deleteDiscount(discount: IDiscount): void {
-//   if(confirm('Are you sure?')){
-//     this.discountService.delete(discount.id).subscribe(() => {
-//       this.getDiscounts();
-//     })
-//   }
-// }
-
-// private resetForm(): void {
-//   this.description = '';
-//   this.imagePath = 'https://la.ua/wp-content/uploads/2021/08/6-1.jpg';
-//   this.editStatus = false;
-// }

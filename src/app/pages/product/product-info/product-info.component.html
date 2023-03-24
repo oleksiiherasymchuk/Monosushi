@@ -2,9 +2,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a [routerLink]="[ '/' ]" routerLinkActive="route-active">Головна</a></li>
-          <li class="breadcrumb-item"><a [routerLink]="[ '/product/rolls' ]" routerLinkActive="route-active">Роли</a></li>
-          <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="[ '/product/rolls' ]" routerLinkActive="route-active">{{ currentProduct.path }}</a></li>
-          <li class="breadcrumb-item active" aria-current="page">{{ currentProduct.name }}</li>
+          <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="[ '/products/rolls' ]" routerLinkActive="route-active">{{ currentProduct.path }}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{ currentProduct.name | titlecase }}</li>
         </ol>
       </nav>
 </div>
@@ -16,21 +15,18 @@
     </div>
 
     <div class="description">
-        <h1>{{ currentProduct.name }}</h1>
-        <p class="ingredients"><b>Склад: </b> {{ currentProduct.ingredients }} </p>
+        <h1>{{ currentProduct.name | titlecase }}</h1>
+        <p class="ingredients"><b>Склад: </b> {{ currentProduct.ingredients | titlecase }} </p>
         <p class="weight"><b>Вага: </b> {{ currentProduct.weight }} гр</p>
         <div class="controls">
             <p class="price">
-                <!-- {{ currentProduct.price }} -->
                 {{ currentProduct.price * currentProduct.count }}
                 грн
             </p>
             <div class="input">
-                <!-- <div class="btn-group controlsInput" role="group" aria-label="Basic example"> -->
                     <button (click)="productCount(currentProduct, false)" type="button" class="btn">-</button>
                     <input class="form-control" type="text" [value]="currentProduct.count" style="width: 40px;">
                     <button (click)="productCount(currentProduct, true)" type="button" class="btn">+</button>
-                <!-- </div> -->
             </div>
           
             <button (click)="addToBasket(currentProduct)">Замовити</button>

@@ -11,9 +11,9 @@ import { AdminAuthorizationComponent } from './admin-authorization/admin-authori
 const routes: Routes = [
   {
     path: '', component: AdminComponent, children: [
-      { path: 'category', component: AdminCategoryComponent },
-      { path: 'product', component: AdminProductComponent },
-      { path: 'discount', component: AdminDiscountComponent },
+      { path: 'categories', component: AdminCategoryComponent },
+      { path: 'products', component: AdminProductComponent },
+      { path: 'discounts', component: AdminDiscountComponent },
       { path: 'news', component: AdminNewsComponent },
       { path: 'order', component: AdminOrderComponent },
       { path: '', pathMatch: 'full', redirectTo: 'category' }

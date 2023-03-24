@@ -16,18 +16,6 @@
       "id": 1
     },
     {
-      "name": "california",
-      "path": "rolls",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Faboutus1.jpeg?alt=media&token=2d018b72-3366-48a4-98d7-168ee0043d56",
-      "id": 2
-    },
-    {
-      "name": "philadelphia max",
-      "path": "sets",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fhomelogo.jpeg?alt=media&token=c524dfd0-d80a-4ef4-9367-fdb2141f3bc7",
-      "id": 3
-    },
-    {
       "name": "chili",
       "path": "souces",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-387c0.appspot.com/o/images%2Fsouces.svg?alt=media&token=1d98b477-daa6-4abe-8b67-a32ee7df3d68",

@@ -1,38 +1,7 @@
 <div class="productTitle">
     <h1>Продукти</h1>
 </div>
-
-<!-- <div class="products">
-    <div class="menu">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" >Всі</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Філандельфія</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Каліфорнія</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Запечені</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Фірмові</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Макі</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Преміум</a>
-            </li>
-          </ul>
-    </div>
-</div> -->
-
-
-<!-- make routes -->
-<!-- active href works -->
+            
 <div class="productMenu">
     <div class="menu">
         <ul class="nav nav-tabs">
@@ -65,28 +34,21 @@
 
         <div class="product" *ngFor="let product of productsArray">
             <div class="productImage">
-                <a [routerLink]="[ '/product/'+product.category.path, product.id ]"><img [src]="product.imagePath"
+                <a [routerLink]="[ '/products/'+product.path, product.id ]"><img [src]="product.imagePath"
                         alt=""></a>
             </div>
 
             <div class="productTitle">
-                <p [routerLink]="[ '/product/'+product.category.path, product.id ]">{{ product.name }}</p>
+                <p [routerLink]="[ '/products/'+product.path, product.id ]">{{ product.name | titlecase}}</p>
             </div>
 
             <div class="productDescription">
-                <p>{{ product.ingredients }}</p>
+                <p>{{ product.ingredients | titlecase }}</p>
                 <p>{{ product.weight }} г</p>
             </div>
 
             <div class="productControls">
                 <div class="productPrice">{{ product.price }} грн</div>
-                <!-- 
-                <div class="productQuantity">
-                    <button class="decrease">-</button>
-                    <input type="number" value="1">
-                    <button class="increase">+</button>
-                </div> -->
-
                 <button class="order">ЗАМОВИТИ</button>
             </div>
         </div>

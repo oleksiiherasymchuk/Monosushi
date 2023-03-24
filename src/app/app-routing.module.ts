@@ -9,10 +9,10 @@ import { ProductResolver } from './shared/services/product/product.resolver';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'discount', loadChildren: () => import('./pages/discount/discount.module').then(m => m.DiscountModule) },
+  { path: 'discounts', loadChildren: () => import('./pages/discount/discount.module').then(m => m.DiscountModule) },
   // { path: 'product', loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule) },
-  { path: 'product/:category', component: ProductComponent },
-  { path: 'product/:category/:id', component: ProductInfoComponent, resolve: { productInfo: ProductResolver } },
+  { path: 'products/:categories', component: ProductComponent },
+  { path: 'products/:categories/:id', component: ProductInfoComponent, resolve: { productInfo: ProductResolver } },
   { path: 'payment', loadChildren: () => import('./pages/payment/payment.module').then(m => m.PaymentModule) },
   { path: 'delivery', loadChildren: () => import('./pages/delivery/delivery.module').then(m => m.DeliveryModule) },
   { path: 'about', loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule) },

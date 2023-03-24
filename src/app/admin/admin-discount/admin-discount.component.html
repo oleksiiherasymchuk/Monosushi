@@ -1,8 +1,7 @@
 <div class="wrapper">
     <button class="add" (click)="addDiscountItem()">ДОДАТИ АКЦІЮ</button>
 
-    <div class="form" *ngIf="editStatus">
-
+    <div class="form" *ngIf="isOpen">
         <form [formGroup]="discountForm" (ngSubmit)="addDiscount()">
             <div class="name">
                 <input type="text" placeholder="*Назва" formControlName="name" name="name" id="name">
@@ -33,7 +32,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let discount of adminDiscounts; index as i">
-                <td>{{ i + 1 }}</td>
+                <td>24.03.2023</td>
                 <td>{{ discount.name }}</td>
                 <td>{{ discount.title }}</td>
                 <td>

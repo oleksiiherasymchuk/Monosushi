@@ -1,5 +1,5 @@
 export interface IDiscount {
-    id: number;
+    id: number | string;
     name: string,
     title: string,
     description: string;
@@ -14,5 +14,5 @@ export interface IDiscountRequest {
 }
 
 export interface IDiscountResponse extends IDiscountRequest {
-    id: number;
+    id: number | string;
 }

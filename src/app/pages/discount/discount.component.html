@@ -5,13 +5,13 @@
 <div class="discounts">
     <div class="discount" *ngFor="let discount of discountArray">
         <div class="img">
-            <a [routerLink]="[ '/discount', discount.id ]">
+            <a [routerLink]="[ '/discounts', discount.id ]">
                 <img [src]="discount.imagePath" alt="">
             </a>
         </div>
-        <h5 [routerLink]="[ '/discount', discount.id ]">{{ discount.name }}</h5>
+        <h5 [routerLink]="[ '/discounts',discount.id ]">{{ discount.name | titlecase }}</h5>
         <hr>
-        <button [routerLink]="[ '/discount', discount.id ]">ДІЗНАТИСЯ БІЛЬШЕ</button>
+        <button [routerLink]="[ '/discounts', discount.id ]">ДІЗНАТИСЯ БІЛЬШЕ</button>
     </div>
 </div>
 

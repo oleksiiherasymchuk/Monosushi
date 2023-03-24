@@ -10,7 +10,8 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: ProductInfoComponent,resolve: {
+    component: ProductInfoComponent,
+    resolve: {
             productInfo: ProductResolver
           }
   },

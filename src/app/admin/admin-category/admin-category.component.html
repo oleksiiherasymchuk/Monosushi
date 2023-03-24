@@ -1,7 +1,7 @@
 <div class="wrapper">
     <button class="add" (click)="addCategoryItem()">ДОДАТИ КАТЕГОРІЮ</button>
 
-    <div class="form" *ngIf="editStatus">
+    <div class="form" *ngIf="isOpen">
         <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
             <div class="name">
                 <input type="text" placeholder="*Назва" formControlName="name" name="name" id="name">
@@ -39,7 +39,6 @@
                 <td>
                     <p (click)="editCategory(category)">Редагувати</p>
                     <p (click)="deleteCategory(category)">Видалити</p>
-                    <!-- [disabled]="editStatus" (click)="deleteCategory(category)" for delete button -->
                 </td>
             </tr>
         </tbody>

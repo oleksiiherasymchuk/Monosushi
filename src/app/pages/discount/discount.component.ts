@@ -1,5 +1,5 @@
-import { ActivatedRoute, Route, Router, NavigationEnd } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IDiscountResponse } from 'src/app/shared/interfaces/discount/discount.interface';
 import { DiscountService } from 'src/app/shared/services/discount/discount.service';
@@ -9,50 +9,31 @@ import { DiscountService } from 'src/app/shared/services/discount/discount.servi
   templateUrl: './discount.component.html',
   styleUrls: ['./discount.component.scss']
 })
-export class DiscountComponent implements OnInit {
+export class DiscountComponent implements OnInit, OnDestroy {
 
   public discountArray!: Array<IDiscountResponse>;
-  // private eventSubscription!: Subscription;
+  private eventSubscription!: Subscription;
 
   constructor(
     private discountService: DiscountService,
-    // private activatedRoute: ActivatedRoute,
-    // private router: Router
+    private router: Router
   ) {
-    // this.eventSubscription = this.router.events.subscribe((event) => {
-    //   if (event instanceof NavigationEnd) {
-    //     this.getDiscount()
-    //   }
-    // })
-  }
-
-  ngOnInit(): void {
-    this.getDiscount()
-  }
-
-  getDiscount(): void {
-    this.discountService.getAll().subscribe((data) => {
-      this.discountArray = data
+    this.eventSubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.getDiscount()
+      }
     })
   }
 
+  ngOnInit(): void {}
+
+  getDiscount(): void {
+    this.discountService.getAllFirebase().subscribe((data) => {
+      this.discountArray = data as IDiscountResponse[]
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.eventSubscription.unsubscribe()
+  }
 }
-
-/* 
-
-
-
-getProducts(): void {
-  // this.productService.getAll().subscribe((data) => {
-  //   this.productsArray = data
-  const categoryName = this.activatedRoute.snapshot.paramMap.get('category') as string;
-  this.productService.getAllByCategory(categoryName).subscribe((data) => {
-    this.productsArray = data
-    // console.log(categoryName);
-    
-  })
-}
-
-ngOnDestroy(): void {
-  this.eventSubscription.unsubscribe()
-} */

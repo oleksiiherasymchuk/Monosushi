@@ -16,8 +16,8 @@ export class ProductResolver implements Resolve<IProductResponse> {
   constructor ( private productService: ProductService ) {}
 
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IProductResponse> {
-    return this.productService.getOne(Number(route.paramMap.get('id')));
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
+    return this.productService.getOneProduct(route.paramMap.get('id') as string);
   }
 }
 

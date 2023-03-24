@@ -2,8 +2,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a [routerLink]="[ '/' ]" routerLinkActive="route-active">Головна</a></li>
-          <li class="breadcrumb-item"><a [routerLink]="[ '/discount' ]" routerLinkActive="route-active">Акції</a></li>
-          <li class="breadcrumb-item active">{{ currentDiscount.name }}</li>
+          <li class="breadcrumb-item"><a [routerLink]="[ '/discounts' ]" routerLinkActive="route-active">Акції</a></li>
+          <li class="breadcrumb-item active">{{ currentDiscount.name | titlecase }}</li>
         </ol>
       </nav>
 </div>
@@ -12,42 +12,19 @@
     <div class="discountTitle">
         <div class="title">
             <div class="hr"></div>
-            <p>{{ currentDiscount.name }}</p>
+            <p>{{ currentDiscount.name | titlecase }}</p>
         </div>
     </div>
 
     <div class="discountDescription">
         <ul>
-            <li>{{ currentDiscount.description }}</li>
+            <li>{{ currentDiscount.description | titlecase }}</li>
             <li>Щотижня діє знижка {{ currentDiscount.name }} на один з ролів у нашому меню.</li>
-            <li>“{{ currentDiscount.name }}” ви можете знайти на головній сторінці нашого сайту.</li>
+            <li>“{{ currentDiscount.name | titlecase }}” ви можете знайти на головній сторінці нашого сайту.</li>
             <li>Знижка діє при мінімальній сумі замовлення 300 грн.</li>
             <li>Ця акція не поєднується з іншими акціями.</li>
         </ul>
     </div>
 </div>
 
-<!-- <div class="container">
-    <div class="img">
-        <img [src]="currentProduct.imagePath" class="img-fluid rounded-start" [alt]="currentProduct.name">
-    </div> -->
-
-    <!-- <div class="description">
-        <h1>{{ currentProduct.name }}</h1>
-        <p class="ingredients"><b>Склад: </b> {{ currentProduct.ingredients }} </p>
-        <p class="weight"><b>Вага: </b> {{ currentProduct.weight }} гр</p>
-        <div class="controls">
-            <p class="price">
-                {{ currentProduct.price * currentProduct.count }}
-                грн
-            </p>
-            <div class="input">
-                    <button (click)="productCount(currentProduct, false)" type="button" class="btn">-</button>
-                    <input class="form-control" type="text" [value]="currentProduct.count" style="width: 40px;">
-                    <button (click)="productCount(currentProduct, true)" type="button" class="btn">+</button>
-          
-            </div>
-          
-            <button (click)="addToBasket(currentProduct)">Замовити</button>
-        </div>
-    </div> -->
+           
