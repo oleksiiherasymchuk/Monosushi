@@ -8,3 +8,5 @@ basket make angular material dialog.open, delete and create with firebase
 
 
 admin discount component html tr get date 
+history if 0 orders show modal
+basket if 0 products show modal

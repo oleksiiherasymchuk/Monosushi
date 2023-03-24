@@ -15,8 +15,6 @@
     text-align: center;
     z-index: 99;
     background-color: #fff;
-    // visibility: hidden;
-
 
     .closeEntranceModal {
         align-self: flex-end;
@@ -54,27 +52,18 @@
         }
 
 
-        // a {
-        //     text-decoration: none;
-        //     color: black;
-        // }
-
-        // a:hover {
-        //     color: #b5d8f7;
-        // }
-
         p {
             width: 100%;
             display: flex;
             justify-content: space-between;
             font-weight: bold;
 
-            span:hover{
+            span:hover {
                 color: #b5d8f7;
             }
         }
 
-        
+
     }
 }
 
@@ -93,9 +82,7 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    background-color: #fff;;
-
-    // visibility: hidden;
+    background-color: #fff;
 
     h3 {
         width: 90%;
@@ -167,10 +154,9 @@
     text-align: center;
     z-index: 99;
 
-    h1{
+    h1 {
         margin-top: 15px;
     }
-    // visibility: hidden;
 
 
     .closesignInModal {

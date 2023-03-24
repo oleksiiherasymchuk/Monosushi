@@ -1,8 +1,8 @@
 import { ActivatedRoute } from '@angular/router';
 import { DiscountService } from 'src/app/shared/services/discount/discount.service';
 import { Component, OnInit } from '@angular/core';
-import { IDiscountRequest, IDiscountResponse } from 'src/app/shared/interfaces/discount/discount.interface';
-import { Observable } from 'rxjs';
+import { IDiscountResponse } from 'src/app/shared/interfaces/discount/discount.interface';
+
 
 @Component({
   selector: 'app-discount-info',

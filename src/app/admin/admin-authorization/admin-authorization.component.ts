@@ -35,7 +35,6 @@ export class AdminAuthorizationComponent implements OnInit, OnDestroy {
     if (this.loginSubscription) {
       this.loginSubscription.unsubscribe();
     }
-    // this.loginSubscription.unsubscribe();
   }
 
   initAuthForm(): void {

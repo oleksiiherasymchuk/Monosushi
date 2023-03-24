@@ -10,7 +10,6 @@ import { ProductResolver } from './shared/services/product/product.resolver';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'discounts', loadChildren: () => import('./pages/discount/discount.module').then(m => m.DiscountModule) },
-  // { path: 'product', loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule) },
   { path: 'products/:categories', component: ProductComponent },
   { path: 'products/:categories/:id', component: ProductInfoComponent, resolve: { productInfo: ProductResolver } },
   { path: 'payment', loadChildren: () => import('./pages/payment/payment.module').then(m => m.PaymentModule) },

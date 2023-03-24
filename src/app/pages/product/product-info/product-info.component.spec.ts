@@ -14,14 +14,8 @@ xdescribe('ProductInfoComponent', () => {
       imports: [
         HttpClientTestingModule,
         RouterTestingModule,
-        // ReactiveFormsModule,
-        // MatDialogModule
       ],
       providers: [
-        // { provide: MatDialogRef, useValue: {} },
-        // { provide: Auth, useValue: {} },
-        // { provide: Firestore, useValue: {} },
-        // { provide: ToastrService, useValue: {} },
       ]
     })
     .compileComponents();

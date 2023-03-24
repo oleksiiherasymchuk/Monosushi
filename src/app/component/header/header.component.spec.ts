@@ -16,14 +16,10 @@ describe('HeaderComponent', () => {
       imports: [
         HttpClientTestingModule,
         RouterTestingModule,
-        // ReactiveFormsModule,
         MatDialogModule
       ],
       providers: [
         { provide: MatDialogRef, useValue: {} },
-        // { provide: Auth, useValue: {} },
-        // { provide: Firestore, useValue: {} },
-        // { provide: ToastrService, useValue: {} },
       ],
       schemas: [NO_ERRORS_SCHEMA]
     })

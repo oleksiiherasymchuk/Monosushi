@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ICategoryResponse } from 'src/app/shared/interfaces/category/category.interface';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product.interface';
-// import { CategoryService } from 'src/app/shared/services/category/category.service';
 import { ImagesService } from 'src/app/shared/services/images/images.service';
 import { ProductService } from 'src/app/shared/services/product/product.service';
 
@@ -20,12 +19,10 @@ export class AdminProductComponent implements OnInit {
   public editStatus = false;
   public isUploaded = false;
   public isOpen = false;
-  // private currentCategoryId!: string | number
   private currentProductId!: string | number;
 
   constructor(
     private fb: FormBuilder,
-    // private categoryService: CategoryService,
     private productService: ProductService,
     private imageService: ImagesService,
     private toastr: ToastrService,

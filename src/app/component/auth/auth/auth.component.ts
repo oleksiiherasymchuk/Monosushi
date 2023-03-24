@@ -6,7 +6,7 @@ import { doc, docData, Firestore, setDoc } from '@angular/fire/firestore';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ROLE } from 'src/app/shared/constants/role.constant';
 import { IRegister } from 'src/app/shared/interfaces/register/register.interface';
 
@@ -36,7 +36,6 @@ export class AuthComponent implements OnInit, OnDestroy {
     private afs: Firestore,
     private accountService: AccountService,
     private toastr: ToastrService,
-    // private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private router: Router,
     private dialogRef: MatDialogRef<AuthComponent>
@@ -49,11 +48,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     this.initRegisterForm()
   }
 
-  ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-    // this.loginSubscription.unsubscribe()
-  }
+  ngOnDestroy(): void {}
 
 
   initAuthForm(): void {

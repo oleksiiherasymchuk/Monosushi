@@ -10,10 +10,8 @@
     .img {
         width: 50%;
         height: 75%;
-        // position: relative;
 
         img {
-            // position: absolute;
             width: 80%;
             height: 400px;
             top: 50%;
@@ -119,14 +117,4 @@
         }
      
     }
-    // .breadcrumb-item+.breadcrumb-item::before {
-    //     content: "";
-    //     position: relative;
-    //     display: inline-block;
-    //     width: 4px;
-    //     height: 4px;
-    //     border-radius: 50%;
-    //     background: #5a5a5a;
-    //     margin: 0 10px 2px;
-    // }
 }

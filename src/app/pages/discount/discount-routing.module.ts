@@ -11,9 +11,9 @@ const routes: Routes = [
   {
     path: ':id',
     component: DiscountInfoComponent
-    ,resolve: {
-            discountInfo: DiscountResolver
-          }
+    , resolve: {
+      discountInfo: DiscountResolver
+    }
   },
 ];
 

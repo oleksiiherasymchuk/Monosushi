@@ -3,15 +3,6 @@ footer {
     border-top: 4px solid #b5d8f7;
 
     .top {
-        // display: grid;
-        // grid-template-columns: 1fr 1fr 1fr;
-        // width: 90%;
-        // height: 70px;
-        // background-color: red;
-        // column-gap: 180px;
-        // grid-template-rows: 35px 35px;
-        // margin: 0 35px;
-
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -58,7 +49,6 @@ footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            // margin-top: 30px;
             text-align: center;
 
             .delivery {
@@ -118,7 +108,6 @@ footer {
     }
 
     .bottom {
-        // width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;

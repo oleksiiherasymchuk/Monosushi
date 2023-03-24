@@ -34,9 +34,7 @@ export class ProductInfoComponent implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
     this.productService.getOneProduct(id).subscribe(data => {
       this.currentProduct = data as IProductResponse;
-      // this.currentCategoryName = this.currentProduct.category.name
     })
-    // console.log(this.currentProduct);
     
   }
 

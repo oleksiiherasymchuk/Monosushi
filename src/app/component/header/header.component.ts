@@ -1,5 +1,5 @@
 import { AccountService } from 'src/app/shared/services/account/account.service';
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product.interface';
 import { OrderService } from 'src/app/shared/services/order/order.service';
@@ -48,25 +48,13 @@ export class HeaderComponent implements OnInit {
   }
   
   showBasket(): void {
-    // console.log(this.basket);
-    // if(this.basket.length === 0){
-    //   this.isBasketEmpty = true
-    // } else { 
-    //   this.isBasketEmpty = false
-    // }
-
     this.isBasketOpen = !this.isBasketOpen
-
-    if (this.isBasketOpen) {
-      // console.log('make main gray');
-
-    }
   }
 
   loadProduct(): void {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.productService.getOne(id).subscribe(data => {
-      this.currentProduct = data;
+    const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
+    this.productService.getOneProduct(id).subscribe(data => {
+      this.currentProduct = data as IProductResponse;
     })
   }
 
@@ -99,18 +87,11 @@ export class HeaderComponent implements OnInit {
   }
 
   deleteBasketProduct(index: number): void {
-    //  to do all logic for delete products in basket
-    // if(this.basket.length === 0){
-    //   this.isBasketEmpty = true
-    // }
-    // make delete basket product with service
     this.basket.splice(index, 1)
     this.productQuantityInBasket = this.basket.length
     if(this.basket.length === 0){
       this.total = 0
     }
-
-    
   }
 
   addToBasket(product: IProductResponse): void {
